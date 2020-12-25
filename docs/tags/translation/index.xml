@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>translation on 瞳</title>
+    <link>https://blog.hitomi.dev/tags/translation/</link>
+    <description>Recent content in translation on 瞳</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 28 Oct 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.hitomi.dev/tags/translation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>「译」Telegram，又曰“退下，让老子的数学PhD来！”</title>
+      <link>https://blog.hitomi.dev/blog/cryptography/telegram-aka-stand-back-we-have-math-phds/</link>
+      <pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.hitomi.dev/blog/cryptography/telegram-aka-stand-back-we-have-math-phds/</guid>
+      <description>译注 原文见《Telegram, Aka &amp;ldquo;Stand back, we have Math PhDs!&amp;quot;》。该文发表于2013年，不少内容或许已经过期，故仅供参考。
+   免责声明 本文如今已十分古老，未必能反应 Telegram 协议于时下的情况。这期间已经有了不少其他研究进展，故而此文不应当被用作你选择加密聊天软件的依据。虽说如此，就我个人而言，我依然认为 Telegram 的加密系统很古怪，并且他们对此的洗地言论站不住脚。如果你想要我推荐一个加密聊天软件：找一套基于 Axolotl/Signal 协议的体系。这套协议设计良好，且已经过大量审查。 Signal 和 WhatsApp，以及一些其他的程序都使用了这套协议。
+ 本文是本系列中第二篇介绍奇怪加密 App 的，对象是最近甚嚣尘上的 Telegram。
+据他们网站所言，Telegram “基于云计算而且大量运用加密”。它有多安全？
+ 非常安全。我们的技术基于一套新协议，名为MTProto，由我们自己的专家研发，并运用了经过时间考验的加密算法。目前而言，你在 Telegram 上的消息泄漏的最大风险是你妈从你背后看你屏幕。其他的风险我们都能搞定。
+ (引自他们的 FAQ)
+嗯，非常安全，他们自己这么说的。
+行，那我们就来看看到底多安全。
+目前可以公开的安全情报 他们的网站上发布了协议的细节。他们其实可以多画些示意图，而不是写一堆纯文字，不过现在这样也算能读。还有个拿 Java 写的开源协议实现。这算个优点。
+关于他们的团队（嗯，我还记得我说过不搞诉诸人身，但毕竟他们一直在吹这点）：
+ Telegram 背后的团队，由 Nikolai Durov 牵头，共计六个 ACM 冠军组成，其中半数都是数学PhD。他们花了两年时间来设计当前的 MTProto。虽说学历未必代表能力，但至少能说明这套协议是海量专家精确计算的结果（原文：result of thougtful and prolonged work of professionals）
+ （来自 Hacker News）
+他们不是密码学家，但他们有数学学术背景。好耶！
+那么，整个体系架构长什么样？**基本上就是世界各地放几台服务器，在客户端之间转发信息。**身份验证只做在客户端和服务端之间，而不是客户端之间点对点验证。客户端和服务端之间有加密，但用的不是TLS（而是一些自制的协议）。加密可以端对端进行，但因为没有身份验证，所以服务器可以进行中间人攻击。
+本质而言，他们的威胁模型就只是“信任服务器”。在公网上传输的内容可能被安全加密了，但我们毕竟无从了解他们的服务器间通信细节，也无法得知他们的数据存储方案。以今天的眼光看来，这套东西既没意思，又昭示着不安全和粗心。类似的系统可以参考 Lavabit 或者 iMessage。这套系统并不能阻止执法部门的监听或者服务器渗透。更糟糕的：你都没法检测到和你聊天对象之间的中间人攻击。</description>
+    </item>
+    
+  </channel>
+</rss>

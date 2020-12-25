@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+  <meta charset="utf-8">
+<title>密码学，从入门到劝退：引论 - 瞳</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="generator" content="Hugo 0.68.3" /><meta property="og:site_name" content="瞳">
+  <meta property="og:title" content="密码学，从入门到劝退：引论">
+  <meta property="og:description" content="逆行不可。">
+  <meta property="description" content="逆行不可。">
+  <meta property="og:url" content="https://blog.hitomi.dev/blog/cryptography/cryptography-introduction/intro/">
+  <meta property="og:type" content="article">
+  
+    <meta property="og:image" content="https://blog.hitomi.dev/img/main/logo.jpg">
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/Xcode.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+        <script src="https://kit.fontawesome.com/be54eb011a.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="/css/main.min.edfe06af8ccc977bc56f86f1d32c08e88b348b5428051b43a1d87cf88cf1e16c.css" integrity="sha256-7f4Gr4zMl3vFb4bx0ywI6Is0i1QoBRtDodh8&#43;Izx4Ww="><link rel="stylesheet" href="/css/add-on.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+      integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous"></head>
+
+  <body>
+    
+
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/" class="nav">
+        
+          博客
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu menu">
+      
+        
+          
+          <a href="/" class="nav link"><i class='fa fa-home'></i> 主页</a>
+        
+      
+        
+          
+          <a href="/about/" class="nav link"><i class='far fa-id-card'></i> 本站信息</a>
+        
+      
+        
+          
+          <a href="/blog/" class="nav link"><i class='far fa-newspaper'></i> 文章</a>
+        
+      
+        
+          
+          <a href="/categories/" class="nav link"><i class='fas fa-sitemap'></i> 分类列表</a>
+        
+      
+      <a href="#share-menu" class="nav link share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      
+    </menu>
+    
+    <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    
+    <a href="#site-nav" class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  
+  
+  
+    <menu id="share-menu" class="flyout-menu menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+        <a href="mailto:?subject=%e6%8e%a8%e8%8d%90%e9%98%85%e8%af%bb %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fblog.hitomi.dev%2fblog%2fcryptography%2fcryptography-introduction%2fintro%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
+          <p>Email</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro" >
+  <header>
+    <h1>瞳</h1>
+  </header>
+  <main>
+    <p>逆行不可</p>
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+
+        
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        
+  <article class="post">
+    <header>
+  <div class="title">
+    
+      <h2><a href="/blog/cryptography/cryptography-introduction/intro/">密码学，从入门到劝退：引论</a></h2>
+    
+    
+  </div>
+  <div class="meta">
+    <time datetime="2020-12-23 00:00:00 &#43;0000 UTC">2020年臘月23日</time>
+    
+    <p>1 分钟</p>
+  </div>
+</header>
+
+    <div class="content">
+      
+      <p>密码学——当下被广泛应用，却又被广泛忽视的学科。在这个 HTTPS / SSH / WPA / 某种工具（咳咳，你懂） 满天飞的时代，说你每分钟都在应用密码学大概不是什么夸张。但另一方面，有很大一部分人，包括那些在生产环境中应用密码学组建构建系统的人，可以说连密码学的常识都没有。</p>
+<p>惭愧地说，我其实也是其中一员。在 ProtonMail 勾起我对密码学的兴趣之前，我甚至干出过拿$$ SHA256(Password | Salt) $$当密码 Hash 存在数据库里的蠢事（别动歪心思，这东西现在已经不在线上运行了）；而且我毫不怀疑部分读者可能还没看出来这有什么问题。</p>
+<p>不要紧。这个系列的目标正是普及密码学常识——至少是在我力所能及范围内的常识。</p>
+<h3 id="动机以及本系列的目标">动机，以及本系列的目标</h3>
+<p>我记得之前看到过一个花边新闻（不幸，现在我找不到来源了）：</p>
+<p>一位密码学家好奇 WebAssembly 在密码学意义上的安全性，于是在推上向 WA 的某个核心开发者询问 WebAssembly 的时间恒定性相关考量。他得到的回应是一个振聋发聩的问句：“旁道是什么？”</p>
+<p>我无意指责这位不知道旁道的开发者。但这确实折射出一个严重的问题：我们的从业者对密码学常识的缺乏实际相当严重。这正是启发我创作本系列的原因。</p>
+<p>读者要注意的是，作为“密码学劝退”科普而非“密码学”科普，我并不打算在本系列里深入讲解密码学的知识，特别是密码学的数学内容。入门密码学并非本系列的目标；恰恰相反，本系列的目标是培养读者对于密码学的敬畏之心，同时让读者无需成为密码学家也能较安全地应用现有的密码学组件。</p>
+<p>更明确地说，在读完本系列以后，读者应当具备如下知识：</p>
+<ul>
+<li>知道古典密码学和现代密码学的差异，以及现代密码学的安全保证。</li>
+<li>对常见的密码学算法及实现有所了解，明确它们的能力和限制。</li>
+<li>明白为什么密码学领域尤其不鼓励自造轮子。</li>
+</ul>
+<p>选择这样的角度，一方面是因为本人的密码学水平远未达到可以进行教学的程度，另一方面则是因为密码学界并不缺乏专业的教材。故而任何有志于密码学研究的读者，应当做好接下来需要自行寻找其他教材提升的准备。</p>
+<h3 id="关于劝退二字">关于“劝退”二字</h3>
+<blockquote>
+<p>Anyone, from the most clueless amateur to the best cryptographer, can create an algorithm that he himself can&rsquo;t break. It&rsquo;s not even hard. What is hard is creating an algorithm that no one else can break, even after years of analysis.
+&ndash; <!-- raw HTML omitted -->Bruce Schneier, 1998<!-- raw HTML omitted --></p>
+</blockquote>
+<p>如上所言，本系列的目标之一是令读者知晓“为何密码学领域尤其不鼓励自造轮子”。实际上这是本系列的重中之重。</p>
+<p>无论直接还是间接，我自己见过的试图自造轮子的人简直黄河沙数。而其中大部分人不是已经悲剧，就是正在通往悲剧的路上。常见的表现有以下几种（顺序无关）：</p>
+<ul>
+<li>搞了一套自造算法，试了一下发现自己破解不了，于是便认为安全。</li>
+<li>搞了一套自造算法，觉得只要不把算法细节公布出来，自己就是安全的。</li>
+<li>拿一些老旧的算法(RC4/DES/SHA1 等等)互相套娃，然后觉得自己的设计比这些组件更安全。</li>
+<li>用 C/Java/JS/其他什么高级语言写了一套密码学算法实现，写了几个单元测试，发现输入输出没什么问题，然后就认定实现正确。</li>
+</ul>
+<p>上表远非穷尽，而我也不知道列出来的这几个常见错误已经让多少人中枪；不过如果你未经密码学训练，而又曾经自信满满地实现过一套安全系统，那么你该当心了：本系列正是用来击碎你的自信的。当你知道现实中的攻击未必只是盯着一段密文反推原文，当你知道数学上绝对安全的算法一旦变成实现就多出了成千上万个漏洞以后，懵懂时期的安全感还能保持住几分呢？至少当我回头看我之前用上密码学的程序的话，我觉得那些全是我的黑历史。</p>
+<p>引论到此为止。这篇文章中提到的内容，我都会在之后尽可能地展开讲述。所以若以上内容能够激起你的兴趣的话，Stay tuned。</p>
+<hr>
+<p><a href="/blog/cryptography/cryptography-introduction/classic-cryptography-1/">下一话，古典密码，堂堂连载！</a></p>
+
+    </div>
+    <footer>
+      <div class="stats">
+  
+    <ul class="categories">
+      
+        
+          <li><a class="article-terms-link" href="/categories/cryptography/">cryptography</a></li>
+        
+      
+    </ul>
+  
+  
+    <ul class="tags">
+      
+        
+          <li><a class="article-terms-link" href="/tags/cryptography/">cryptography</a></li>
+        
+      
+    </ul>
+  
+</div>
+
+    </footer>
+  </article>
+  
+    
+
+  
+  <div class="pagination">
+    
+      <a href="/blog/cryptography/cryptography-introduction/classic-cryptography-1/" class="button left"><span>密码学，从入门到劝退：古典密码（上篇）</span></a>
+    
+    
+      <a href="/blog/cryptography/telegram-aka-stand-back-we-have-math-phds/" class="button right"><span>「译」Telegram，又曰“退下，让老子的数学PhD来！”</span></a>
+    
+  </div>
+
+      </main>
+      <section id="site-sidebar">
+  
+    <section id="recent-posts">
+      <header>
+        <h1>最新文章</h1>
+      </header>
+      
+      <article class="mini-post">
+          
+        <header>
+          <h2><a href="/blog/operating-system/os-from-scratch-intro/">初等屠龙技：阿库娅也能看懂的 OS 编写入门 序</a></h2>
+          <time class="published" datetime="2020-12-24 00:00:00 &#43;0000 UTC">2020年臘月24日</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          
+        <header>
+          <h2><a href="/blog/cryptography/cryptography-introduction/classic-cryptography-1/">密码学，从入门到劝退：古典密码（上篇）</a></h2>
+          <time class="published" datetime="2020-12-24 00:00:00 &#43;0000 UTC">2020年臘月24日</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          
+        <header>
+          <h2><a href="/blog/cryptography/cryptography-introduction/intro/">密码学，从入门到劝退：引论</a></h2>
+          <time class="published" datetime="2020-12-23 00:00:00 &#43;0000 UTC">2020年臘月23日</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          
+        <header>
+          <h2><a href="/blog/cryptography/telegram-aka-stand-back-we-have-math-phds/">「译」Telegram，又曰“退下，让老子的数学PhD来！”</a></h2>
+          <time class="published" datetime="2020-10-28 00:00:00 &#43;0000 UTC">2020年拾月28日</time>
+        </header>
+      </article>
+      
+      
+    </section>
+  
+
+  
+    
+
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">分类</a></h1>
+        </header>
+        <ul>
+          
+          
+          <li>
+              <a href="/categories/cryptography/">cryptography<span class="count">3</span></a>
+          
+          <li>
+              <a href="/categories/operating-system/">operating-system<span class="count">1</span></a>
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  
+    <section id="mini-bio">
+      <header>
+        <h1>本站信息</h1>
+      </header>
+      <p>逆行不可。SAN值见底。</p>
+      <footer>
+        <a href="/about" class="button">了解更多</a>
+      </footer>
+    </section>
+  
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="socnet-icons">
+        
+
+        
+      </ul>
+  
+  <p class="copyright">
+    © 2020 瞳
+      <br>
+    主题: <a href='https://themes.gohugo.io/hugo-future-imperfect-slim/' target='_blank' rel='noopener'>Hugo Future Imperfect Slim</a><br>自 <a href='https://html5up.net/future-imperfect' target='_blank' rel='noopener'>HTML5 UP</a>移植而来 | 由 <a href='https://gohugo.io/' target='_blank' rel='noopener' title='0.68.3'>Hugo</a> 生成
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script><script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.9484b92e9daece43b6beaa7cf94f56fd1f7dfe67c176fa16afc50da919a22007.js" integrity="sha256-lIS5Lp2uzkO2vqp8&#43;U9W/R99/mfBdvoWr8UNqRmiIAc="></script>
+    <script src="/js/add-on.js"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+  integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+  integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
+    </div>
+  </body>
+</html>
