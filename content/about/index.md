@@ -20,6 +20,7 @@ layout = "about"
 - 邮箱：<araragihokuto@outlook.com>
 - Matrix: @cyberwanderer:privacytools.io
 - IRC: Mokou@freenode.net -- 请于 #c_lang_cn 找我
+- Pleroma: miko@pl.tsukuyomi.dev -- 可与 Mastodon 互通。
 
 我拒绝使用 Telegram。[原因见此](/blog/cryptography/telegram-aka-stand-back-we-have-math-phds/)。
 

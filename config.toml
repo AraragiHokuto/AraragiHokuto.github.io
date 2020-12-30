@@ -170,6 +170,6 @@ publishDir              = "docs"
   orcid                 = ""
   researchgate          = ""
   keybase               = ""
-  mastodon              = ""
+  mastodon              = "miko@pl.tsukuyomi.dev"
   # Email
   email                 = "araragihokuto@outlook.com"
