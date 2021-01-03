@@ -2,15 +2,15 @@
 <html lang="zh-cn">
   <head>
   <meta charset="utf-8">
-<title>operating-system - 瞳</title>
+<title>初等屠龙技：阿库娅也能看懂的 OS 编写入门 序 - 瞳</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
 <meta name="generator" content="Hugo 0.68.3" /><meta property="og:site_name" content="瞳">
-  <meta property="og:title" content="operating-system">
+  <meta property="og:title" content="初等屠龙技：阿库娅也能看懂的 OS 编写入门 序">
   <meta property="og:description" content="逆行不可。">
   <meta property="description" content="逆行不可。">
-  <meta property="og:url" content="https://blog.hitomi.dev/categories/operating-system/">
+  <meta property="og:url" content="https://blog.hitomi.dev/blog/operating-system/primitive-osdev-intro/intro/">
   <meta property="og:type" content="article">
   
     <meta property="og:image" content="https://blog.hitomi.dev/img/main/logo.jpg">
@@ -30,7 +30,7 @@
     <h1 class="nav-title">
       <a href="/" class="nav">
         
-          分类
+          博客
         
       </a>
     </h1>
@@ -75,7 +75,7 @@
 
 
   
-        <a href="mailto:?subject=%e6%8e%a8%e8%8d%90%e9%98%85%e8%af%bb %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fblog.hitomi.dev%2fcategories%2foperating-system%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
+        <a href="mailto:?subject=%e6%8e%a8%e8%8d%90%e9%98%85%e8%af%bb %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fblog.hitomi.dev%2fblog%2foperating-system%2fprimitive-osdev-intro%2fintro%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
           <p>Email</p>
         </a>
   
@@ -97,8 +97,6 @@
     <footer>
       <ul class="socnet-icons">
         
-    <li><a href="/categories/operating-system/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fas fa-rss"></a></li>
-
 
         
       </ul>
@@ -108,65 +106,8 @@
 
       <main id="site-main">
         
-  
-  
-    <article class="post">
-  <header>
-  <div class="title">
-    
-      <h2><a href="/blog/illumos/notes-on-reuseport-support/">思路整理：对于 illumos 上 SO_REUSEPORT 补丁的笔记</a></h2>
-    
-    
-  </div>
-  <div class="meta">
-    <time datetime="2020-12-26 00:00:00 &#43;0000 UTC">2020年臘月26日</time>
-    
-    <p>7 分钟</p>
-  </div>
-</header>
-
-  <div class="content">
-    
-    
-    <p>把目前世界上能找到的最正统的 SysV 的源代码扒过来，对着它的网络栈一通搅合，还试图把改动作为补丁提交回去——这大概是我今年干出的事情里面最不知天高地厚的一件了。毕竟一头扎进有着数十年历史的代码堆里面本身就是需要勇气的一件事，更不用我改动的地方还有着炸掉世界各地的所有相关系统的潜力——在 IP 模块里面搞出个死锁干掉所有跑着的 illumos 系统这种事情想想就刺激。</p>
-  </div>
-  <footer>
-    <a href="/blog/illumos/notes-on-reuseport-support/" class="button big">展开全文</a>
-    <div class="stats">
-  
-    <ul class="categories">
-      
-        
-          <li><a class="article-terms-link" href="/categories/operating-system/">operating-system</a></li>
-        
-          <li><a class="article-terms-link" href="/categories/networking/">networking</a></li>
-        
-      
-    </ul>
-  
-  
-    <ul class="tags">
-      
-        
-          <li><a class="article-terms-link" href="/tags/operating-system/">operating-system</a></li>
-        
-          <li><a class="article-terms-link" href="/tags/networking/">networking</a></li>
-        
-          <li><a class="article-terms-link" href="/tags/illumos/">illumos</a></li>
-        
-          <li><a class="article-terms-link" href="/tags/personal-note/">personal-note</a></li>
-        
-      
-    </ul>
-  
-</div>
-
-  </footer>
-</article>
-
-  
-    <article class="post">
-  <header>
+  <article class="post">
+    <header>
   <div class="title">
     
       <h2><a href="/blog/operating-system/primitive-osdev-intro/intro/">初等屠龙技：阿库娅也能看懂的 OS 编写入门 序</a></h2>
@@ -180,14 +121,45 @@
   </div>
 </header>
 
-  <div class="content">
-    
-    
-    <p>如是我闻：程序员有三大浪漫，曰OS，曰CG，曰编译器。虽说引用*乎上业界爱抖露的言论是个高风险行为，不过我还是打算拿这句话作为开篇之语——反正这是我自己的博客，管他那么多。</p>
-  </div>
-  <footer>
-    <a href="/blog/operating-system/primitive-osdev-intro/intro/" class="button big">展开全文</a>
-    <div class="stats">
+    <div class="content">
+      
+      <h1 id="其之一-引">其之一 引</h1>
+<p>如是我闻：程序员有三大浪漫，曰OS，曰CG，曰编译器。虽说引用*乎上业界爱抖露的言论是个高风险行为，不过我还是打算拿这句话作为开篇之语——反正这是我自己的博客，管他那么多。</p>
+<p>我还记得小学三年级时的自己。那时候我还是个对计算机充满好奇的熊孩子，脑袋里充斥着一行代码没读过的外行人对编程的幻想。当时我听说 Linux 和 Windows 都是用 C 写的，于是误以为花个一两年的时间把 C 入了门，就足以写出一个操作系统来自娱自乐——我到现在还能记得当时我幻想中的那个自制 OS 的 BIOS 式蓝色背景文本 GUI（现在回首，在 UI 的设想上我还真是意外地有自知之明，没幻想一个华丽的3D 桌面出来）。</p>
+<p>当然不必说，买回来一本 VB 教程和一本国内大学 C++ 教材的我自然是连门都没碰到，甚至连编程本身也没学到几分。真正要入门 OS 开发，那还得等到初二的时候有人给我指了路，我才跟着一个相对实用的教程写了半个内核出来。</p>
+<p>关于我自己的闲话就到此为止。至于提笔编写这个教程的动机——如前文所述——是浪漫。虽说既然是如此普遍的浪漫，教程自然不会少，但我总觉得编写玩具 OS 可以采取一个不那么实用向的角度（不会真的有人觉得自己花一个月就能打败 Windows&amp;Linux&amp;macOS 吧？）。然而不幸，我所能找到的 OS Tutorial 几乎都始于从 0x7c00 启动开始读扇区，或者从 multiboot 启动之后开始往 0xb8000 写字符显示 VGA 文本。</p>
+<p>这无可非议。毕竟写 OS 总得让人有点成就感，而在自己的 x86 机器上跑一个能往屏幕上吐出东西的裸机程序大概是获得成就感的最快方式了。但我还是觉得不高兴：既然都已经放弃实用性追求浪漫了，身为活在新世纪的第二个十年的年轻人，我们何不抛开这些历史的苟且，搞些更优雅更浪漫的东西出来呢？</p>
+<p>正因如此，我打算在本系列中采取一个不那么寻常的路子。我们将首先实现一个 RISC-V 上的类 Unix 操作系统，一直到能跑起一个基础的 shell 为止，但我们并不止于此；之后，我们还要把我们这个玩具 OS 移植到 x86-64 上。</p>
+<p>这种路径会带来几个好处：</p>
+<ul>
+<li>因为我们已经预定了多体系支持，这便要求我们在编写内核的时候留个心眼，而不会满足于平台相关的七拼八凑。</li>
+<li>不同体系之间的对比能更加明显地凸显出哪些部分是操作系统的本质，哪些部分是与体系交互的抽象层。我个人希望这种概念上的明晰能让入门读者受益更多。</li>
+<li>众所周知，x86 的臃肿和混乱可谓臭名昭彰。从 RISC-V 上开始能让我们更快地真正开始编写我们的操作系统，而不用花大力气对付实模式/保护模式/长模式，以及其他那堆历史遗留的东西。</li>
+</ul>
+<p>当然，考虑到大部分读者还在用着 x86 的机器，所以如果有读者觉得这种路径太繁琐/太慢热的话，本系列恐怕不适合你。无妨——优秀的 OS Tutorial 到处都是，相信读者稍微检索一下即可找到。</p>
+<p>而如果你是那部分还没被劝退的读者的话——欢迎登机，祝旅途愉快。</p>
+<h2 id="背景知识">背景知识</h2>
+<p>鉴于本系列是 OS 编写入门教程，而不是编程入门教程，我会假定读者具有以下背景知识：</p>
+<ul>
+<li>以 C 语言编写程序的能力。本教程中绝大部分内容会用 C 语言实现，故而假定读者具有理解示例，以及自行补足或修改示例的能力。（另，别跟我推销 Rust，也别问我为什么不接受推销。）</li>
+<li>对计算机系统组成的基本概念。OS 不止是 HAL，但 OS 通常需要实现一个 HAL。在使用硬件之前显然需要对硬件有概念。</li>
+<li>OS 相关的基本理论。当然本系列并不要求读者成为 OS 专家，但没有理论的引导我们只会晕头转向，所以基础的理论知识也是必要的。</li>
+</ul>
+<p>以上列表我会随时补充。感到自己知识有所欠缺的读者，可以预先补足，或者随着我们的进度推进一道补足。</p>
+<h2 id="参考资料">参考资料</h2>
+<p>教程本身是有极限的，额外的参考资料必不可少。以下将会列出我本人认为有价值的材料，方便读者随时查阅：</p>
+<ul>
+<li><a href="https://wiki.osdev.org/">OSDev Wiki</a> OS 开发相关的 wiki，上面零散地分布着大量实用而有价值的资料。十星推荐。</li>
+<li><a href="https://riscv.org/technical/specifications/">RISC-V 标准</a> RISC-V 体系的标准。在我们编写 RISC-V 上的程序的时候将会大量参考这些内容。</li>
+<li>《AMD64 Architecture Programmer&rsquo;s Manual》AMD 官方提供的 AMD64 参考手册。在我们进行 x86-64 移植的时候将会大量参考该手册。</li>
+</ul>
+<p>以上列表我会随时补充。</p>
+<hr>
+<p>闲话少叙，是时候开始干点实事了。下一话，你好，THE WORLD!</p>
+
+    </div>
+    <footer>
+      <div class="stats">
   
     <ul class="categories">
       
@@ -208,12 +180,18 @@
   
 </div>
 
-  </footer>
-</article>
+    </footer>
+  </article>
+  
+    
 
   
   <div class="pagination">
     
+      <a href="/blog/illumos/notes-on-reuseport-support/" class="button left"><span>思路整理：对于 illumos 上 SO_REUSEPORT 补丁的笔记</span></a>
+    
+    
+      <a href="/blog/cryptography/cryptography-introduction/classic-cryptography-1/" class="button right"><span>密码学，从入门到劝退：古典密码（上篇）</span></a>
     
   </div>
 
@@ -315,8 +293,6 @@
   
       <ul class="socnet-icons">
         
-    <li><a href="/categories/operating-system/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fas fa-rss"></a></li>
-
 
         
       </ul>

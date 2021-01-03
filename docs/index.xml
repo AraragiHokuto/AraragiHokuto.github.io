@@ -12,6 +12,22 @@
     
     
     <item>
+      <title>思路整理：对于 illumos 上 SO_REUSEPORT 补丁的笔记</title>
+      <link>https://blog.hitomi.dev/blog/illumos/notes-on-reuseport-support/</link>
+      <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.hitomi.dev/blog/illumos/notes-on-reuseport-support/</guid>
+      <description>把目前世界上能找到的最正统的 SysV 的源代码扒过来，对着它的网络栈一通搅合，还试图把改动作为补丁提交回去——这大概是我今年干出的事情里面最不知天高地厚的一件了。毕竟一头扎进有着数十年历史的代码堆里面本身就是需要勇气的一件事，更不用我改动的地方还有着炸掉世界各地的所有相关系统的潜力——在 IP 模块里面搞出个死锁干掉所有跑着的 illumos 系统这种事情想想就刺激。
+不过身为软件工程师，总得有梦想，而上面提到的那些心理障碍在让自己的代码跑在世界各地的服务器上的浪漫面前显然无足挂齿；所以四月的时候我还是头铁了上去，而且还真的搞出了一份 patch。截至本文成文之日，补丁仍在热烈 review 当中（显然，这种变动需要慎之又慎）；但我还是决定先花点时间，整理一下我自己的思路和所得，以方便后来者——包括以后的我自己。
+背景资料 illumos illumos 这个名字的认知度意外地不高——不少我见过的人都向我表示根本没听说过。不过如果我把它的前身拿出来，那恐怕是如雷贯耳：Solaris
+虽说 Solaris 这个名字的所有权现在处于 Oracle 手里，官方意义上的 OpenSolaris 项目也早已停止，但鉴于 illumos 社区内有大量的 Sun 前员工，而且 Oracle 已经事实上放弃了 Solaris，我觉得将 illumos 视作 Solaris 的正统后继而非 fork 没什么问题。
+考虑到如今 illumos 的知名度，以及 Solaris 身为正统 SysV 的名号，或许很多人会先入为主地认为这不过是个沉浸在自己旧日荣光之中的腐朽操作系统。
+远非如此。
+先不说基于 illumos 的 OpenIndiana 发行版作为 OpenSolaris 的二进制兼容物有其不可替代的应用场景这点，如今 illumos 的应用也远没到将死的程度—— 身为三星子公司的 joyent 目前仍然运行着由 SmartOS 支撑的云服务，且正积极地为 illumos 社区回馈贡献；我也时常能见到在线上运行着 OmniOS 服务器的管理员来到社区讨论（我自己也可算作其中一员：我在 Linode 上跑着一台 OmniOS VPS）。而社区的热度则可以从我挤满了未读消息的 IRC 和塞了几千封未读邮件的邮件列表中体现。
+相比于 Linux 这种主流 OS，illumos 确实小众；但这不代表它缺乏活力。而能为这样一个血统高贵（虽说 Unix 的血统不足惜）却又生机勃勃的 OS 贡献代码，不也是一种浪漫吗？</description>
+    </item>
+    
+    <item>
       <title>本站信息</title>
       <link>https://blog.hitomi.dev/about/</link>
       <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
@@ -21,16 +37,16 @@
 许可证 若无另行声明，则本站原创文章默认以 CC-BY-NC-SA 4.0 许可证发布。
 原创代码一律以 MIT Expat 许可证发布。
 注意站内一切内容均为基于我主观认知的产物；我会尽力确保内容的准确性，但不对此给出任何保证。对本站内容照本宣科而产生的后果本人概不负责。
-联络方式  邮箱：araragihokuto@outlook.com Matrix: @cyberwanderer:privacytools.io IRC: Mokou@freenode.net &amp;ndash; 请于 #c_lang_cn 找我  我拒绝使用 Telegram。原因见此。
+联络方式  邮箱：araragihokuto@outlook.com Matrix: @cyberwanderer:privacytools.io IRC: Mokou@freenode.net &amp;ndash; 请于 #c_lang_cn 找我 Pleroma: miko@pl.tsukuyomi.dev &amp;ndash; 可与 Mastodon 互通。  我拒绝使用 Telegram。原因见此。
 我不打算鼓励 QQ 和微信的使用，所以不在此处列出二者的帐号。</description>
     </item>
     
     <item>
       <title>初等屠龙技：阿库娅也能看懂的 OS 编写入门 序</title>
-      <link>https://blog.hitomi.dev/blog/operating-system/os-from-scratch-intro/</link>
+      <link>https://blog.hitomi.dev/blog/operating-system/primitive-osdev-intro/intro/</link>
       <pubDate>Thu, 24 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.hitomi.dev/blog/operating-system/os-from-scratch-intro/</guid>
+      <guid>https://blog.hitomi.dev/blog/operating-system/primitive-osdev-intro/intro/</guid>
       <description>其之一 引 如是我闻：程序员有三大浪漫，曰OS，曰CG，曰编译器。虽说引用*乎上业界爱抖露的言论是个高风险行为，不过我还是打算拿这句话作为开篇之语——反正这是我自己的博客，管他那么多。
 我还记得小学三年级时的自己。那时候我还是个对计算机充满好奇的熊孩子，脑袋里充斥着一行代码没读过的外行人对编程的幻想。当时我听说 Linux 和 Windows 都是用 C 写的，于是误以为花个一两年的时间把 C 入了门，就足以写出一个操作系统来自娱自乐——我到现在还能记得当时我幻想中的那个自制 OS 的 BIOS 式蓝色背景文本 GUI（现在回首，在 UI 的设想上我还真是意外地有自知之明，没幻想一个华丽的3D 桌面出来）。
 当然不必说，买回来一本 VB 教程和一本国内大学 C++ 教材的我自然是连门都没碰到，甚至连编程本身也没学到几分。真正要入门 OS 开发，那还得等到初二的时候有人给我指了路，我才跟着一个相对实用的教程写了半个内核出来。

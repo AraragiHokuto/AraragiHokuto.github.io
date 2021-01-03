@@ -6,10 +6,46 @@
     <description>Recent content in Tags on 瞳</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 24 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://blog.hitomi.dev/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>illumos</title>
+      <link>https://blog.hitomi.dev/tags/illumos/</link>
+      <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.hitomi.dev/tags/illumos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>networking</title>
+      <link>https://blog.hitomi.dev/tags/networking/</link>
+      <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.hitomi.dev/tags/networking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>operating-system</title>
+      <link>https://blog.hitomi.dev/tags/operating-system/</link>
+      <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.hitomi.dev/tags/operating-system/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>personal-note</title>
+      <link>https://blog.hitomi.dev/tags/personal-note/</link>
+      <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.hitomi.dev/tags/personal-note/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>cryptography</title>
@@ -17,15 +53,6 @@
       <pubDate>Thu, 24 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://blog.hitomi.dev/tags/cryptography/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>operating-system</title>
-      <link>https://blog.hitomi.dev/tags/operating-system/</link>
-      <pubDate>Thu, 24 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.hitomi.dev/tags/operating-system/</guid>
       <description></description>
     </item>
     
