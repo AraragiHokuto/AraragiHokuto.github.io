@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>translation on 瞳</title>
+    <title>translation on 东亚国中央广播电台</title>
     <link>https://blog.hitomi.dev/tags/translation/</link>
-    <description>Recent content in translation on 瞳</description>
+    <description>Recent content in translation on 东亚国中央广播电台</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 28 Oct 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.hitomi.dev/tags/translation/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 28 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.hitomi.dev/tags/translation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>「译」Telegram，又曰“退下，让老子的数学PhD来！”</title>
       <link>https://blog.hitomi.dev/blog/cryptography/telegram-aka-stand-back-we-have-math-phds/</link>

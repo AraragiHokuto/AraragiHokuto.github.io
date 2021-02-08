@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>瞳</title>
+    <title>东亚国中央广播电台</title>
     <link>https://blog.hitomi.dev/</link>
-    <description>Recent content on 瞳</description>
+    <description>Recent content on 东亚国中央广播电台</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 25 Dec 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.hitomi.dev/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 26 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.hitomi.dev/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>思路整理：对于 illumos 上 SO_REUSEPORT 补丁的笔记</title>
       <link>https://blog.hitomi.dev/blog/illumos/notes-on-reuseport-support/</link>
@@ -37,7 +33,7 @@
 许可证 若无另行声明，则本站原创文章默认以 CC-BY-NC-SA 4.0 许可证发布。
 原创代码一律以 MIT Expat 许可证发布。
 注意站内一切内容均为基于我主观认知的产物；我会尽力确保内容的准确性，但不对此给出任何保证。对本站内容照本宣科而产生的后果本人概不负责。
-联络方式  邮箱：araragihokuto@outlook.com Matrix: @cyberwanderer:privacytools.io IRC: Mokou@freenode.net &amp;ndash; 请于 #c_lang_cn 找我 Pleroma: miko@pl.tsukuyomi.dev &amp;ndash; 可与 Mastodon 互通。  我拒绝使用 Telegram。原因见此。
+联络方式  邮箱：araragihokuto@outlook.com Matrix: @miko:tsukuyomi.dev IRC: Mokou@freenode.net &amp;ndash; 请于 #c_lang_cn 找我 Pleroma: miko@pl.tsukuyomi.dev &amp;ndash; 可与 Mastodon 互通。  我拒绝使用 Telegram。原因见此。
 我不打算鼓励 QQ 和微信的使用，所以不在此处列出二者的帐号。</description>
     </item>
     
