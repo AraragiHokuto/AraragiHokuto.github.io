@@ -18,7 +18,7 @@ layout = "about"
 ## 联络方式
 
 - 邮箱：<araragihokuto@outlook.com>
-- Matrix: @cyberwanderer:privacytools.io
+- Matrix: @miko:tsukuyomi.dev
 - IRC: Mokou@freenode.net -- 请于 #c_lang_cn 找我
 - Pleroma: miko@pl.tsukuyomi.dev -- 可与 Mastodon 互通。
 

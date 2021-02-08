@@ -2,7 +2,7 @@
 # https://github.com/pacollins/hugo-future-imperfect-slim/wiki/config.toml
 baseurl                 = "https://blog.hitomi.dev/"
 DefaultContentLanguage  = "zh-cn"
-title                   = "瞳"
+title                   = "东亚国中央广播电台"
 theme                   = "hugo-future-imperfect-slim"
 paginate                = 3
 disqusShortname         = ""
@@ -46,14 +46,14 @@ publishDir              = "docs"
     iOSColor            = "#ffffff"
 
   [params.header]
-    navbarTitle         = "HITOMI"
+    navbarTitle         = "Eastasia Central Radio Station"
     dynamicTitles       = true
     searchMenu          = false
     shareMenu           = true
     languageMenu        = false
 
   [params.intro]
-    header                = "瞳"
+    header                = "东亚国中央广播电台"
     paragraph             = "逆行不可"
     rssIntro              = true
     socialIntro           = false
