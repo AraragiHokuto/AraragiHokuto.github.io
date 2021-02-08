@@ -37,7 +37,7 @@ publishDir              = "docs"
   mathjax               = false
 
   [params.meta]
-    description         = "逆行不可。"
+    description         = "禁止倒行逆施。"
     author              = "北斗"
     favicon             = false
     svg                 = true
@@ -54,7 +54,7 @@ publishDir              = "docs"
 
   [params.intro]
     header                = "东亚国中央广播电台"
-    paragraph             = "逆行不可"
+    paragraph             = "禁止倒行逆施"
     rssIntro              = true
     socialIntro           = false
     hideWhenSingleColumn  = false
@@ -67,7 +67,7 @@ publishDir              = "docs"
       alt                 = "Hugo Future Imperfect Slim"
 
   [params.sidebar]
-    about               = "逆行不可。SAN值见底。"
+    about               = "禁止倒行逆施；若发现您的程序正在反向运行，请立即带上所有相关材料至特高课报道。"
     postAmount          = 5
     categories          = true
     categoriesByCount   = true
